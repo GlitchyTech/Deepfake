@@ -2,7 +2,7 @@ from moviepy.editor import *
 from pydub import AudioSegment
 
 
-def split_into_mini_audio_recordings(sound, silence_threshold=-45.0, step_size=10):   # silence_threshold=-45.0 - unique to each audio recording
+def split_into_mini_audio_recordings(sound, silence_threshold=-30.0, step_size=10):   # silence_threshold=-45.0 - unique to each audio recording
     samples_count = 0
     silence_ms = 0
     step_size_for_pause = 500
@@ -21,7 +21,7 @@ def split_into_mini_audio_recordings(sound, silence_threshold=-45.0, step_size=1
 
         samples_count += 1
 
-        end = start + step_size_for_pause * i
+        end = start + step_size_for_pause * i + 300
         audio = sound[start:end]
         str = "A:/Downloads/dataset/output_audio_{}.wav".format(samples_count)
         audio.export(str, format="wav")   # saving
@@ -30,7 +30,7 @@ def split_into_mini_audio_recordings(sound, silence_threshold=-45.0, step_size=1
     return
 
 
-audio_original = AudioFileClip("A:/Downloads/360p.mp4")
+audio_original = AudioFileClip("A:/Downloads/361.mp3")
 audio_original.write_audiofile("A:/Downloads/original_audio.wav")   # saving
 sound = AudioSegment.from_file("A:/Downloads/original_audio.wav", format="wav")
 
