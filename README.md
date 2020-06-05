@@ -1,2 +1,2 @@
 # Neural-Network-Deepfake
-Neural network : That changes video and voice data so person on the video says what you want and it looks like for real.
+Essentials for preparing your own dataset to create your own deepfake using neural networks
